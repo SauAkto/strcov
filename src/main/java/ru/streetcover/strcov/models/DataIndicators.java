@@ -75,104 +75,104 @@ public class DataIndicators {
         return area;
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    public void setArea(String area) {
+        this.area = Double.parseDouble(area);
     }
 
     public double getPrimerConsumptions() {
         return primerConsumptions;
     }
 
-    public void setPrimerConsumptions(double primerConsumptions) {
-        this.primerConsumptions = primerConsumptions;
+    public void setPrimerConsumptions(String primerConsumptions) {
+        this.primerConsumptions = Double.parseDouble(primerConsumptions);
     }
 
     public double getTopLayerThickness() {
         return topLayerThickness;
     }
 
-    public void setTopLayerThickness(double topLayerThickness) {
-        this.topLayerThickness = topLayerThickness;
+    public void setTopLayerThickness(String topLayerThickness) {
+        this.topLayerThickness = Double.parseDouble(topLayerThickness);
     }
 
     public double getEPDMConsumption() {
         return EPDMConsumption;
     }
 
-    public void setEPDMConsumption(double EPDMConsumption) {
-        this.EPDMConsumption = EPDMConsumption;
+    public void setEPDMConsumption(String EPDMConsumption) {
+        this.EPDMConsumption = Double.parseDouble(EPDMConsumption);
     }
 
     public double getBottomLayerThickness() {
         return bottomLayerThickness;
     }
 
-    public void setBottomLayerThickness(double bottomLayerThickness) {
-        this.bottomLayerThickness = bottomLayerThickness;
+    public void setBottomLayerThickness(String bottomLayerThickness) {
+        this.bottomLayerThickness = Double.parseDouble(bottomLayerThickness);
     }
 
     public double getSBRConsumption() {
         return SBRConsumption;
     }
 
-    public void setSBRConsumption(double SBRConsumption) {
-        this.SBRConsumption = SBRConsumption;
+    public void setSBRConsumption(String SBRConsumption) {
+        this.SBRConsumption = Double.parseDouble(SBRConsumption);
     }
 
     public double getNumberOfCoatingLayers() {
         return numberOfCoatingLayers;
     }
 
-    public void setNumberOfCoatingLayers(double numberOfCoatingLayers) {
-        this.numberOfCoatingLayers = numberOfCoatingLayers;
+    public void setNumberOfCoatingLayers(String numberOfCoatingLayers) {
+        this.numberOfCoatingLayers = Double.parseDouble(numberOfCoatingLayers);
     }
 
     public double getTopBinderConsumption() {
         return topBinderConsumption;
     }
 
-    public void setTopBinderConsumption(double topBinderConsumption) {
-        this.topBinderConsumption = topBinderConsumption;
+    public void setTopBinderConsumption(String topBinderConsumption) {
+        this.topBinderConsumption = Double.parseDouble(topBinderConsumption);
     }
 
     public double getButtonBinderConsumption() {
         return buttonBinderConsumption;
     }
 
-    public void setButtonBinderConsumption(double buttonBinderConsumption) {
-        this.buttonBinderConsumption = buttonBinderConsumption;
+    public void setButtonBinderConsumption(String buttonBinderConsumption) {
+        this.buttonBinderConsumption = Double.parseDouble(buttonBinderConsumption);
     }
 
     public double getSolvenConsumption() {
         return solvenConsumption;
     }
 
-    public void setSolvenConsumption(double solvenConsumption) {
-        this.solvenConsumption = solvenConsumption;
+    public void setSolvenConsumption(String solvenConsumption) {
+        this.solvenConsumption = Double.parseDouble(solvenConsumption);
     }
 
     public double getPriceEPDM() {
         return priceEPDM;
     }
 
-    public void setPriceEPDM(double priceEPDM) {
-        this.priceEPDM = priceEPDM;
+    public void setPriceEPDM(String priceEPDM) {
+        this.priceEPDM = Double.parseDouble(priceEPDM);
     }
 
     public double getPricePrimer() {
         return pricePrimer;
     }
 
-    public void setPricePrimer(double pricePrimer) {
-        this.pricePrimer = pricePrimer;
+    public void setPricePrimer(String pricePrimer) {
+        this.pricePrimer = Double.parseDouble(pricePrimer);
     }
 
     public double getPriceSBR() {
         return priceSBR;
     }
 
-    public void setPriceSBR(double priceSBR) {
-        this.priceSBR = priceSBR;
+    public void setPriceSBR(String priceSBR) {
+        this.priceSBR = Double.parseDouble(priceSBR);
     }
 
     public double getPriceSolven() {
@@ -187,16 +187,16 @@ public class DataIndicators {
         return priceBinderRUBbarrel;
     }
 
-    public void setPriceBinderRUBbarrel(double priceBinderRUBbarrel) {
-        this.priceBinderRUBbarrel = priceBinderRUBbarrel;
+    public void setPriceBinderRUBbarrel(String priceBinderRUBbarrel) {
+        this.priceBinderRUBbarrel = Double.parseDouble(priceBinderRUBbarrel);
     }
 
     public double getPriceBinderEURObarrel() {
         return priceBinderEURObarrel;
     }
 
-    public void setPriceBinderEURObarrel(double priceBinderEURObarrel) {
-        this.priceBinderEURObarrel = priceBinderEURObarrel;
+    public void setPriceBinderEURObarrel(String priceBinderEURObarrel) {
+        this.priceBinderEURObarrel = Double.parseDouble(priceBinderEURObarrel);
     }
 
     public double getPriceBinderUSDbarrel() {
@@ -279,40 +279,5 @@ public class DataIndicators {
         this.sizeBinderBarrel = sizeBinderBarrel;
     }
 
-    public DataIndicators(double area, double primerConsumptions, double topLayerThickness,
-                          double EPDMConsumption, double bottomLayerThickness, double SBRConsumption,
-                          double numberOfCoatingLayers, double topBinderConsumption,
-                          double buttonBinderConsumption, double solvenConsumption, double priceEPDM,
-                          double pricePrimer, double priceSBR, double priceSolven, double priceBinderRUBbarrel,
-                          double priceBinderEURObarrel, double priceBinderUSDbarrel, double priceBinderRUBbucket,
-                          double priceBinderEURObucket, double priceBinderUSDbucket, double sizePrimerBucket,
-                          double sizeBinderBucket, double sizeSalvenCanister, double sizeEPDMbag, double sizeSBRbag,
-                          double sizeBinderBarrel) {
-        this.area = area;
-        this.primerConsumptions = primerConsumptions;
-        this.topLayerThickness = topLayerThickness;
-        this.EPDMConsumption = EPDMConsumption;
-        this.bottomLayerThickness = bottomLayerThickness;
-        this.SBRConsumption = SBRConsumption;
-        this.numberOfCoatingLayers = numberOfCoatingLayers;
-        this.topBinderConsumption = topBinderConsumption;
-        this.buttonBinderConsumption = buttonBinderConsumption;
-        this.solvenConsumption = solvenConsumption;
-        this.priceEPDM = priceEPDM;
-        this.pricePrimer = pricePrimer;
-        this.priceSBR = priceSBR;
-        this.priceSolven = priceSolven;
-        this.priceBinderRUBbarrel = priceBinderRUBbarrel;
-        this.priceBinderEURObarrel = priceBinderEURObarrel;
-        this.priceBinderUSDbarrel = priceBinderUSDbarrel;
-        this.priceBinderRUBbucket = priceBinderRUBbucket;
-        this.priceBinderEURObucket = priceBinderEURObucket;
-        this.priceBinderUSDbucket = priceBinderUSDbucket;
-        this.sizePrimerBucket = sizePrimerBucket;
-        this.sizeBinderBucket = sizeBinderBucket;
-        this.sizeSalvenCanister = sizeSalvenCanister;
-        this.sizeEPDMbag = sizeEPDMbag;
-        this.sizeSBRbag = sizeSBRbag;
-        this.sizeBinderBarrel = sizeBinderBarrel;
-    }
+
 }
