@@ -11,11 +11,12 @@
 
 
 </head>
-<body class="overbody" th:each="el : ${dataIndicators}">
+<body  th:each="el : ${dataIndicators}">
 
 <header th:insert="block/header :: header"></header>
 
 <!--th:each="el : ${dataIndicators}" th:value="${el.primerConsumptions}"-->
+<div class="overbody">
 <form method="get" id="sitedata" th:action="'/home/' + ${el.id}">
     <div class="centralbody">
 
@@ -134,6 +135,7 @@
         <div class="blok"> </div><!-- calculate -->
     </div>
 </form>
+
 <div class="centralrezalt">
     <div class="blok">
         <div class="textrezult"> РЕЗУЛЬТАТ </div>
@@ -261,7 +263,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 <footer th:insert="block/footer :: footer">
 </footer>

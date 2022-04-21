@@ -2,27 +2,157 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" language="java">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"/>
+        <title th:text="${title}"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" language="java">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../static.css/style.css">
+        <link rel="stylesheet" th:href="@{static.css/style.css}">
 </head>
 
-<body th:each="el : ${dataIndicators}">
+<body th:each="el : ${dataIndicators}" class="overbody">
 
 <header th:insert="block/header :: header"></header>
 
 <form method="get" id="sitedata" th:action="'/home/' + ${el.id}">
 
 <div class="centralbody" >
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">тут динамический курс евро ЦБ</div>
+
+        </div>
+        <div class="blok2-2">
+            <div class="text">тут динамический курс дол ЦБ</div>
+
+        </div>
+    </div>
+    <div class="blok"> </div>
+    <div class="blok"><h3>Стоимость материала</h3> </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее бочка, RUB</div>
+            <div class="pole"><input type="text" name="priceBinderRUBbarrel" th:value="${el.priceBinderRUBbarrel}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+        <div class="blok2-2">
+            <div class="text">Связующее бочка, EUR</div>
+            <div class="pole"><input type="text" name="priceBinderEURObarrel" th:value="${el.priceBinderEURObarrel}" class="vvod"></div>
+            <div class="textback">euro</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее бочка, USD</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее ведро, RUB</div>
+            <div class="pole"><input type="text" name="priceBinderRUBbarrel" th:value="${el.priceBinderRUBbarrel}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+        <div class="blok2-2">
+            <div class="text">Связующее ведро, EUR</div>
+            <div class="pole"><input type="text" name="priceBinderEURObarrel" th:value="${el.priceBinderEURObarrel}" class="vvod"></div>
+            <div class="textback">euro</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее ведро, USD</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Чёрная SBR крошка</div>
+            <div class="pole"><input type="text" name="priceSBR" th:value="${el.priceSBR}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">ЭПДМ крошка, средняя</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Растворитель</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/л</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Праймер (грунтовка)</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+<!--дешевый клей для подложки-->
+    <div class="blok"><h5>Cвязующее для подстилающих слоев</h5> </div>
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее бочка, RUB</div>
+            <div class="pole"><input type="text" name="priceBinderRUBbarrel" th:value="${el.priceBinderRUBbarrel}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+        <div class="blok2-2">
+            <div class="text">Связующее бочка, EUR</div>
+            <div class="pole"><input type="text" name="priceBinderEURObarrel" th:value="${el.priceBinderEURObarrel}" class="vvod"></div>
+            <div class="textback">euro</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее бочка, USD</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее ведро, RUB</div>
+            <div class="pole"><input type="text" name="priceBinderRUBbarrel" th:value="${el.priceBinderRUBbarrel}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+        <div class="blok2-2">
+            <div class="text">Связующее ведро, EUR</div>
+            <div class="pole"><input type="text" name="priceBinderEURObarrel" th:value="${el.priceBinderEURObarrel}" class="vvod"></div>
+            <div class="textback">euro</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее ведро, USD</div>
+            <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
+            <div class="textback">руб/кг</div>
+        </div>
+    </div>
+
+<!--    Расход материала-->
+    <div class="blok"> </div>
+    <div class="blok"> </div>
+    <div class="blok"><h3>Расход материала на 10мм толщины покрытия</h3> </div>
+
         <div class="blok" >
-            <div class="block2-1">
-                <div class="text">Площадь покрытия</div>
-                <div class="pole"><input type="text" name="area" th:value="${el.area}" class="vvod"></div>
-                <div class="textback">м2</div>
-            </div>
-            <div class="blok2-2">
+            <div class="blok2-1">
                 <div class="text">Расход праймера</div>
                 <div class="pole"><input type="text" name="primerConsumptions" th:value="${el.primerConsumptions}" class="vvod"></div>
                 <div class="textback">кг/м2</div>
@@ -31,11 +161,6 @@
 
         <div class="blok">
             <div class="blok2-1">
-                <div class="text">Толщина верхнего слоя</div>
-                <div class="pole"><input type="text" name="topLayerThickness" th:value="${el.topLayerThickness}" class="vvod"></div>
-                <div class="textback">мм</div>
-            </div>
-            <div class="blok2-2">
                 <div class="text">Расход ЭПДМ крошки</div>
                 <div class="pole"><input type="text" name="EPDMConsumption" th:value="${el.EPDMConsumption}" class="vvod"></div>
                 <div class="textback">кг/м2</div>
@@ -44,11 +169,6 @@
 
         <div class="blok">
             <div class="blok2-1">
-                <div class="text">Толщина подстилающего слоя</div>
-                <div class="pole"><input type="text" name="bottomLayerThickness" th:value="${el.bottomLayerThickness}" class="vvod"></div>
-                <div class="textback">мм</div>
-            </div>
-            <div class="blok2-2">
                 <div class="text">Расход черной крошки</div>
                 <div class="pole"><input type="text" name="SBRConsumption" th:value="${el.SBRConsumption}" class="vvod"></div>
                 <div class="textback">кг/м2</div>
@@ -57,73 +177,81 @@
 
         <div class="blok">
             <div class="blok2-1">
-                <div class="text">Количество слоев покрытия</div>
-                <div class="pole"><input type="text" name="numberOfCoatingLayers" th:value="${el.numberOfCoatingLayers}" class="vvod"></div>
-                <div class="textback">шт</div>
-            </div>
-            <div class="blok2-2">
                 <div class="text">Расход связующего, верх</div>
                 <div class="pole"><input type="text" name="topBinderConsumption" th:value="${el.topBinderConsumption}" class="vvod"></div>
                 <div class="textback">кг/м2</div>
             </div>
-        </div>
-
-        <div class="blok">
             <div class="blok2-2">
                 <div class="text">Расход связующего, подложка</div>
                 <div class="pole"><input type="text" name="buttonBinderConsumption" th:value="${el.buttonBinderConsumption}" class="vvod"></div>
                 <div class="textback">кг/м2</div>
             </div>
-        </div><!-- comment -->
+        </div>
 
         <div class="blok">
-            <div class="blok2-2">
+            <div class="blok2-1">
                 <div class="text">Расход растворителя</div>
                 <div class="pole"><input type="text" name="solvenConsumption" th:value="${el.solvenConsumption}" class="vvod"></div>
                 <div class="textback">л/м2</div>
             </div>
         </div>
 
-        <div class="blok"> </div>
+<!--Объемы тары/упаковки-->
+    <div class="blok"> </div>
+    <div class="blok"> </div>
+    <div class="blok"><h3>Размер упаковки/тары</h3> </div>
 
-        <div class="blok">
-            <div class="blok2-1">
-                <div class="text">Стоимость ЭПДМ, средняя</div>
-                <div class="pole"><input type="text" name="priceEPDM" th:value="${el.priceEPDM}" class="vvod"></div>
-                <div class="textback">руб/кг</div>
-            </div>
+    <div class="blok" >
+        <div class="blok2-1">
+            <div class="text">Праймер (грунтовка), ведро</div>
+            <div class="pole"><input type="text" name="primerConsumptions" th:value="${el.primerConsumptions}" class="vvod"></div>
+            <div class="textback">кг</div>
         </div>
+    </div>
 
-        <div class="blok">
-            <div class="blok2-1">
-                <div class="text">Стоимость связующее, RUB</div>
-                <div class="pole"><input type="text" name="priceBinderRUBbarrel" th:value="${el.priceBinderRUBbarrel}" class="vvod"></div>
-                <div class="textback">руб/кг</div>
-            </div>
-            <div class="blok2-2">
-                <div class="text">Стоимость связующее, EUR</div>
-                <div class="pole"><input type="text" name="priceBinderEURObarrel" th:value="${el.priceBinderEURObarrel}" class="vvod"></div>
-                <div class="textback">euro</div>
-            </div>
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">ЭПДМ крошка, мешок</div>
+            <div class="pole"><input type="text" name="EPDMConsumption" th:value="${el.EPDMConsumption}" class="vvod"></div>
+            <div class="textback">кг</div>
         </div>
+    </div>
 
-        <div class="blok">
-            <div class="blok2-1">
-                <div class="text">Стоимость чёрная крошка</div>
-                <div class="pole"><input type="text" name="priceSBR" th:value="${el.priceSBR}" class="vvod"></div>
-                <div class="textback">руб/кг</div>
-            </div>
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Чёрная крошка, мешок</div>
+            <div class="pole"><input type="text" name="SBRConsumption" th:value="${el.SBRConsumption}" class="vvod"></div>
+            <div class="textback">кг</div>
         </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Связующее, бочка</div>
+            <div class="pole"><input type="text" name="topBinderConsumption" th:value="${el.topBinderConsumption}" class="vvod"></div>
+            <div class="textback">кг</div>
+        </div>
+        <div class="blok2-2">
+            <div class="text">Связующее, ведро</div>
+            <div class="pole"><input type="text" name="buttonBinderConsumption" th:value="${el.buttonBinderConsumption}" class="vvod"></div>
+            <div class="textback">кг</div>
+        </div>
+    </div>
+
+    <div class="blok">
+        <div class="blok2-1">
+            <div class="text">Растворителя, тара</div>
+            <div class="pole"><input type="text" name="solvenConsumption" th:value="${el.solvenConsumption}" class="vvod"></div>
+            <div class="textback">литр</div>
+        </div>
+    </div>
+
 
         <div class="blok">
-            <div class="blok2-1">
-                <div class="text">Стоимость праймер</div>
-                <div class="pole"><input type="text" name="pricePrimer" th:value="${el.pricePrimer}" class="vvod"></div>
-                <div class="textback">руб/кг</div>
-            </div>
+
             <div class="buttom">
                 <form action="'/home/'+ ${el.id}">
-                    <button form="sitedata" > РАСЧИТАТЬ</button>
+                    <button form="sitedata" > ЗАПОМНИТЬ </button>
                 </form>
             </div>
         </div>
