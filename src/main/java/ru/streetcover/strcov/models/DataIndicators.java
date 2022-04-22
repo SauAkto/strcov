@@ -12,33 +12,46 @@ public class DataIndicators {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private double area;
-    private double primerConsumptions; // расход праймера
+    private double area; // площадь покрытия
     private double topLayerThickness; //толщина верхнего слоя
-    private double EPDMConsumption;// расход ЭПДМ
     private double bottomLayerThickness; //толщина нижнего слоя
+
+    private double primerConsumptions; // расход праймера
+    private double EPDMConsumption;// расход ЭПДМ
     private double SBRConsumption; // расход черной крошки
     private double numberOfCoatingLayers; // количество слоев покрытия
     private double topBinderConsumption; //расход клея верх
     private double buttonBinderConsumption; // расход клея низ
     private double solvenConsumption; // расход растворителя
+
     private double priceEPDM; // стоимость ЭПДМ
     private double pricePrimer; // стоимость праймер
     private double priceSBR; // стоимость чераня крошка
     private double priceSolven; // стоимость растворитель
-    private double priceBinderRUBbarrel; // стоимость клея в рублях, бочка
-    private double priceBinderEURObarrel; // стоимость клея в евроб  бочка
-    private double priceBinderUSDbarrel; // стоимость клея в долларах, бочка
-    private double priceBinderRUBbucket; // стоимость клея в рублях, ведро
-    private double priceBinderEURObucket; // стоимость клея в евроб, ведро
-    private double priceBinderUSDbucket; // стоимость клея в долларах, ведро
+
     private double sizePrimerBucket; // размер ведра праймера
-    private double sizeBinderBucket; // размер ведра клея
     private double sizeSalvenCanister; // размер канистры растворителя
     private double sizeEPDMbag;// размера мешка ЭПДМ
     private double sizeSBRbag; // размер мешка черной крошки
     private double sizeBinderBarrel; // размер бочки клея
+    private double sizeBinderBucket; // размер ведра клея
+
     private double rateEURO; // курс евро
+    private double rateUSD; // курс доллара
+    //стоимость клея стандартного связующего
+    private double priceBinderRUBbarrel; // стоимость клея в рублях, бочка
+    private double priceBinderEURObarrel; // стоимость клея в евро  бочка
+    private double priceBinderUSDbarrel; // стоимость клея в долларах, бочка
+    private double priceBinderRUBbucket; // стоимость клея в рублях, ведро
+    private double priceBinderEURObucket; // стоимость клея в евроб, ведро
+    private double priceBinderUSDbucket; // стоимость клея в долларах, ведро
+    //стоимость клея для дешевого келя, подложка
+    private double priceBinderRUBbarrelBL; // стоимость клея в рублях, бочка
+    private double priceBinderEURObarrelBL; // стоимость клея в евро  бочка
+    private double priceBinderUSDbarrelBL; // стоимость клея в долларах, бочка
+    private double priceBinderRUBbucketBL; // стоимость клея в рублях, ведро
+    private double priceBinderEURObucketBL; // стоимость клея в евроб, ведро
+    private double priceBinderUSDbucketBL; // стоимость клея в долларах, ведро
 
     public DataIndicators() {
 
@@ -48,19 +61,17 @@ public class DataIndicators {
         return rateEURO;
     }
 
-    public void setRateEURO(double rateEURO) {
-        this.rateEURO = rateEURO;
+    public void setRateEURO(String rateEURO) {
+        this.rateEURO = Double.parseDouble(rateEURO);
     }
 
     public double getRateUSD() {
         return rateUSD;
     }
 
-    public void setRateUSD(double rateUSD) {
-        this.rateUSD = rateUSD;
+    public void setRateUSD(String rateUSD) {
+        this.rateUSD = Double.parseDouble(rateUSD);
     }
-
-    private double rateUSD; // курс доллара
 
 
     public Long getId() {
@@ -116,6 +127,7 @@ public class DataIndicators {
     }
 
     public void setSBRConsumption(String SBRConsumption) {
+
         this.SBRConsumption = Double.parseDouble(SBRConsumption);
     }
 
@@ -179,8 +191,8 @@ public class DataIndicators {
         return priceSolven;
     }
 
-    public void setPriceSolven(double priceSolven) {
-        this.priceSolven = priceSolven;
+    public void setPriceSolven(String priceSolven) {
+        this.priceSolven = Double.parseDouble(priceSolven);
     }
 
     public double getPriceBinderRUBbarrel() {
@@ -203,81 +215,127 @@ public class DataIndicators {
         return priceBinderUSDbarrel;
     }
 
-    public void setPriceBinderUSDbarrel(double priceBinderUSDbarrel) {
-        this.priceBinderUSDbarrel = priceBinderUSDbarrel;
+    public void setPriceBinderUSDbarrel(String priceBinderUSDbarrel) {
+        this.priceBinderUSDbarrel = Double.parseDouble(priceBinderUSDbarrel);
     }
 
     public double getPriceBinderRUBbucket() {
         return priceBinderRUBbucket;
     }
 
-    public void setPriceBinderRUBbucket(double priceBinderRUBbucket) {
-        this.priceBinderRUBbucket = priceBinderRUBbucket;
+    public void setPriceBinderRUBbucket(String priceBinderRUBbucket) {
+        this.priceBinderRUBbucket = Double.parseDouble(priceBinderRUBbucket);
     }
 
     public double getPriceBinderEURObucket() {
         return priceBinderEURObucket;
     }
 
-    public void setPriceBinderEURObucket(double priceBinderEURObucket) {
-        this.priceBinderEURObucket = priceBinderEURObucket;
+    public void setPriceBinderEURObucket(String priceBinderEURObucket) {
+        this.priceBinderEURObucket = Double.parseDouble(priceBinderEURObucket);
     }
 
     public double getPriceBinderUSDbucket() {
         return priceBinderUSDbucket;
     }
 
-    public void setPriceBinderUSDbucket(double priceBinderUSDbucket) {
-        this.priceBinderUSDbucket = priceBinderUSDbucket;
+    public void setPriceBinderUSDbucket(String priceBinderUSDbucket) {
+        this.priceBinderUSDbucket = Double.parseDouble(priceBinderUSDbucket);
     }
 
     public double getSizePrimerBucket() {
         return sizePrimerBucket;
     }
 
-    public void setSizePrimerBucket(double sizePrimerBucket) {
-        this.sizePrimerBucket = sizePrimerBucket;
+    public void setSizePrimerBucket(String sizePrimerBucket) {
+        this.sizePrimerBucket = Double.parseDouble(sizePrimerBucket);
     }
 
     public double getSizeBinderBucket() {
         return sizeBinderBucket;
     }
 
-    public void setSizeBinderBucket(double sizeBinderBucket) {
-        this.sizeBinderBucket = sizeBinderBucket;
+    public void setSizeBinderBucket(String sizeBinderBucket) {
+        this.sizeBinderBucket = Double.parseDouble(sizeBinderBucket);
     }
 
     public double getSizeSalvenCanister() {
         return sizeSalvenCanister;
     }
 
-    public void setSizeSalvenCanister(double sizeSalvenCanister) {
-        this.sizeSalvenCanister = sizeSalvenCanister;
+    public void setSizeSalvenCanister(String sizeSalvenCanister) {
+        this.sizeSalvenCanister = Double.parseDouble(sizeSalvenCanister);
     }
 
     public double getSizeEPDMbag() {
         return sizeEPDMbag;
     }
 
-    public void setSizeEPDMbag(double sizeEPDMbag) {
-        this.sizeEPDMbag = sizeEPDMbag;
+    public void setSizeEPDMbag(String sizeEPDMbag) {
+        this.sizeEPDMbag = Double.parseDouble(sizeEPDMbag);
     }
 
     public double getSizeSBRbag() {
         return sizeSBRbag;
     }
 
-    public void setSizeSBRbag(double sizeSBRbag) {
-        this.sizeSBRbag = sizeSBRbag;
+    public void setSizeSBRbag(String sizeSBRbag) {
+        this.sizeSBRbag = Double.parseDouble(sizeSBRbag);
     }
 
     public double getSizeBinderBarrel() {
         return sizeBinderBarrel;
     }
 
-    public void setSizeBinderBarrel(double sizeBinderBarrel) {
-        this.sizeBinderBarrel = sizeBinderBarrel;
+    public void setSizeBinderBarrel(String sizeBinderBarrel) {
+        this.sizeBinderBarrel = Double.parseDouble(sizeBinderBarrel);
     }
 
+    public double getPriceBinderRUBbarrelBL() {
+        return priceBinderRUBbarrelBL;
+    }
 
+    public void setPriceBinderRUBbarrelBL(String priceBinderRUBbarrelBL) {
+        this.priceBinderRUBbarrelBL = Double.parseDouble(priceBinderRUBbarrelBL);
+    }
+
+    public double getPriceBinderEURObarrelBL() {
+        return priceBinderEURObarrelBL;
+    }
+
+    public void setPriceBinderEURObarrelBL(String priceBinderEURObarrelBL) {
+        this.priceBinderEURObarrelBL = Double.parseDouble(priceBinderEURObarrelBL);
+    }
+
+    public double getPriceBinderUSDbarrelBL() {
+        return priceBinderUSDbarrelBL;
+    }
+
+    public void setPriceBinderUSDbarrelBL(String priceBinderUSDbarrelBL) {
+        this.priceBinderUSDbarrelBL = Double.parseDouble(priceBinderUSDbarrelBL);
+    }
+
+    public double getPriceBinderRUBbucketBL() {
+        return priceBinderRUBbucketBL;
+    }
+
+    public void setPriceBinderRUBbucketBL(String priceBinderRUBbucketBL) {
+        this.priceBinderRUBbucketBL = Double.parseDouble(priceBinderRUBbucketBL);
+    }
+
+    public double getPriceBinderEURObucketBL() {
+        return priceBinderEURObucketBL;
+    }
+
+    public void setPriceBinderEURObucketBL(String priceBinderEURObucketBL) {
+        this.priceBinderEURObucketBL = Double.parseDouble(priceBinderEURObucketBL);
+    }
+
+    public double getPriceBinderUSDbucketBL() {
+        return priceBinderUSDbucketBL;
+    }
+
+    public void setPriceBinderUSDbucketBL(String priceBinderUSDbucketBL) {
+        this.priceBinderUSDbucketBL = Double.parseDouble(priceBinderUSDbucketBL);
+    }
 }
