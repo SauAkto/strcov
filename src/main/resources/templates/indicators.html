@@ -10,21 +10,21 @@
         <link rel="stylesheet" th:href="@{static.css/style.css}">
 </head>
 
-<body th:each="el : ${dataIndicators}" class="overbody">
+<body th:each="el : ${dataInd}" class="overbody">
 
 <header th:insert="block/header :: header"></header>
 
-<form method="get" id="sitedata" th:action="'/home/' + ${el.id}">
+<form method="get" id="sitedata" th:action="'/indicators/' + ${el.id}">
 
 <div class="centralbody" >
     <div class="blok">
         <div class="blok2-1">
-            <div class="text">тут динамический курс евро ЦБ</div>
-
+            <div class="text">Курс EURO</div>
+            <div class="pole"><input type="text" name="rateEURO" th:value="${el.rateEURO}" class="vvod"></div>
         </div>
         <div class="blok2-2">
-            <div class="text">тут динамический курс дол ЦБ</div>
-
+            <div class="text">Курс USD</div>
+            <div class="pole"><input type="text" name="rateUSD" th:value="${el.rateUSD}" class="vvod"></div>
         </div>
     </div>
     <div class="blok"> </div>
@@ -204,7 +204,7 @@
     <div class="blok" >
         <div class="blok2-1">
             <div class="text">Праймер (грунтовка), ведро</div>
-            <div class="pole"><input type="text" name="primerConsumptions" th:value="${el.primerConsumptions}" class="vvod"></div>
+            <div class="pole"><input type="text" name="sizePrimerBucket" th:value="${el.sizePrimerBucket}" class="vvod"></div>
             <div class="textback">кг</div>
         </div>
     </div>
@@ -212,7 +212,7 @@
     <div class="blok">
         <div class="blok2-1">
             <div class="text">ЭПДМ крошка, мешок</div>
-            <div class="pole"><input type="text" name="EPDMConsumption" th:value="${el.EPDMConsumption}" class="vvod"></div>
+            <div class="pole"><input type="text" name="sizeEPDMbag" th:value="${el.sizeEPDMbag}" class="vvod"></div>
             <div class="textback">кг</div>
         </div>
     </div>
@@ -220,7 +220,7 @@
     <div class="blok">
         <div class="blok2-1">
             <div class="text">Чёрная крошка, мешок</div>
-            <div class="pole"><input type="text" name="SBRConsumption" th:value="${el.SBRConsumption}" class="vvod"></div>
+            <div class="pole"><input type="text" name="sizeSBRbag" th:value="${el.sizeSBRbag}" class="vvod"></div>
             <div class="textback">кг</div>
         </div>
     </div>
@@ -228,12 +228,12 @@
     <div class="blok">
         <div class="blok2-1">
             <div class="text">Связующее, бочка</div>
-            <div class="pole"><input type="text" name="topBinderConsumption" th:value="${el.topBinderConsumption}" class="vvod"></div>
+            <div class="pole"><input type="text" name="sizeBinderBarrel" th:value="${el.sizeBinderBarrel}" class="vvod"></div>
             <div class="textback">кг</div>
         </div>
         <div class="blok2-2">
             <div class="text">Связующее, ведро</div>
-            <div class="pole"><input type="text" name="buttonBinderConsumption" th:value="${el.buttonBinderConsumption}" class="vvod"></div>
+            <div class="pole"><input type="text" name="sizeBinderBucket" th:value="${el.sizeBinderBucket}" class="vvod"></div>
             <div class="textback">кг</div>
         </div>
     </div>
@@ -241,7 +241,7 @@
     <div class="blok">
         <div class="blok2-1">
             <div class="text">Растворителя, тара</div>
-            <div class="pole"><input type="text" name="solvenConsumption" th:value="${el.solvenConsumption}" class="vvod"></div>
+            <div class="pole"><input type="text" name="sizeSalvenCanister" th:value="${el.sizeSalvenCanister}" class="vvod"></div>
             <div class="textback">литр</div>
         </div>
     </div>

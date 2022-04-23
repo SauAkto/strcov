@@ -1,6 +1,11 @@
 package ru.streetcover.strcov;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import ru.streetcover.strcov.models.DataIndicators;
+import ru.streetcover.strcov.repository.DataIndicatorsRepository;
+
 public class Solven {
+
     public double generalNeedSolvent (double siteArea, double consumptionSolvent, int numbersLayer){  //принимает площадь площадки, расход растворителя, количество слоев резинового покрытия
          double needSolvent = (siteArea * consumptionSolvent) * numbersLayer;
         return needSolvent; //возвращает общее количество праймера
