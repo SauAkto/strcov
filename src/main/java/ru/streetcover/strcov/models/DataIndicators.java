@@ -1,9 +1,6 @@
 package ru.streetcover.strcov.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class DataIndicators {
@@ -11,6 +8,13 @@ public class DataIndicators {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rezult_id")
+    private RezultationData rezultationData;
+
 
     private double area; // площадь покрытия
     private double topLayerThickness; //толщина верхнего слоя
@@ -55,6 +59,14 @@ public class DataIndicators {
 
     public DataIndicators() {
 
+    }
+
+    public RezultationData getRezultationData() {
+        return rezultationData;
+    }
+
+    public void setRezultationData(RezultationData rezultationData) {
+        this.rezultationData = rezultationData;
     }
 
     public double getRateEURO() {
