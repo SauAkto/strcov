@@ -1,13 +1,53 @@
 package ru.streetcover.strcov;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.springframework.data.jpa.provider.HibernateUtils;
+import ru.streetcover.strcov.models.DataIndicators;
+import ru.streetcover.strcov.models.RezultationData;
+
 public class Primer {
-    public double generalNeedSBR (double siteArea, double consumptionPrimer){  //принимает площадь площадки, расход праймера,
+
+    double needPrimer;
+    double numPrimer;
+    double allCostPrimer;
+
+
+    SessionFactory factory = new Configuration()
+            .configure("hibernate.cfg.xml")
+            .addAnnotatedClass(DataIndicators.class)
+            .addAnnotatedClass(RezultationData.class)
+            .buildSessionFactory();
+   try{
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        DataIndicators daIn = session.get(DataIndicators.class, 2);
+
+        needPrimer = generalNeedPrimer(daIn.getArea(), daIn.getNumberOfCoatingLayers());
+        numPrimer = ocruglContainerPrimer(needPrimer, daIn.getSizePrimerBucket());
+        allCostPrimer = costCompletePrimer(numPrimer, daIn.getSizePrimerBucket(), daIn.getPricePrimer());
+
+        RezultationData reDa = session.get(RezultationData.class, 2);
+        reDa.setCostPrimer(allCostPrimer);
+        reDa.setPrimerNeed(needPrimer);
+        reDa.setPackPrimer(numPrimer);
+
+        session.getTransaction().commit();
+
+    }
+    finally{
+        factory.close();
+    }
+
+
+    public double generalNeedPrimer (double siteArea, double consumptionPrimer){  //принимает площадь площадки, расход праймера,
          double needPrimer = siteArea * consumptionPrimer;
         return needPrimer; //возвращает общее количество праймера
     }
 
-    public int ocruglContainerPrimer(double needPrimer, double conteinerPrimer){    // принимает общую потребность праймера, размер упаковки праймера
-         int numPrimer = (int)Math.ceil((double)(needPrimer/conteinerPrimer));
+    public double ocruglContainerPrimer(double needPrimer, double conteinerPrimer){    // принимает общую потребность праймера, размер упаковки праймера
+         double numPrimer = Math.ceil((double)(needPrimer/conteinerPrimer));
         return numPrimer; //возвращае кол-во упаковок праймера
     }
 

@@ -7,7 +7,7 @@ public class RezultationData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     @OneToOne(mappedBy = "rezultationData", cascade = CascadeType.ALL)
     private DataIndicators dataIndicators;

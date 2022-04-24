@@ -7,7 +7,7 @@ public class DataIndicators {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
 
 

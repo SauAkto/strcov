@@ -5,16 +5,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.streetcover.strcov.models.DataIndicators;
 import ru.streetcover.strcov.repository.DataIndicatorsRepository;
+import ru.streetcover.strcov.repository.RezultationDataRepository;
+
+import java.util.Optional;
 
 @Controller
 public class MainController {
 
     @Autowired
     private DataIndicatorsRepository dataIndicatorsRepository;
+
+    @Autowired
+    private RezultationDataRepository rezultationDataRepository;
 
     @GetMapping("/")
     public String homePage(Model model) {
@@ -132,9 +137,10 @@ public class MainController {
 
         dataIndicatorsRepository.save(dataIndicators);
 
-        Iterable<DataIndicators> dataInd = dataIndicatorsRepository.findAll();
+        Optional<DataIndicators> dataInd = dataIndicatorsRepository.findById(id);
         model.addAttribute("dataIndicators", dataInd);
         model.addAttribute("title", "Страница расчетов");
+
 
         return "home";
     }
