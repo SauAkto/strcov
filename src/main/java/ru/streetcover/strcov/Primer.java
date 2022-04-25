@@ -7,19 +7,21 @@ import org.springframework.data.jpa.provider.HibernateUtils;
 import ru.streetcover.strcov.models.DataIndicators;
 import ru.streetcover.strcov.models.RezultationData;
 
-public class Primer {
+public class Primer{
 
     double needPrimer;
     double numPrimer;
     double allCostPrimer;
+    SessionFactory factory = null;
 
-
-    SessionFactory factory = new Configuration()
+    try
+       {
+    factory = new Configuration()
             .configure("hibernate.cfg.xml")
             .addAnnotatedClass(DataIndicators.class)
             .addAnnotatedClass(RezultationData.class)
             .buildSessionFactory();
-   try{
+
         Session session = factory.getCurrentSession();
         session.beginTransaction();
         DataIndicators daIn = session.get(DataIndicators.class, 2);
@@ -37,7 +39,9 @@ public class Primer {
 
     }
     finally{
-        factory.close();
+        if(factory != null) {
+            factory.close();
+        }
     }
 
 
